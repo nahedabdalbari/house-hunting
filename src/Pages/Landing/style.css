@@ -44,28 +44,9 @@ form button{
   color:#fff;
 
 }
-/* input{
-  position: relative;
-  display: inline-block;
-
+.card-style{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex: '0 0 calc(33.333% - 16px)',
 }
-input [type='text']{
-  background-color: #fff;
-  width:340px;
-  height: 50px;
-  border: none;
-  outline: none;
-  padding:0 25px;
-  border-radius: 25px 0 0 25px;
-}
-input [type='submit']{
-  position: relative;
-  border-radius:0 25px 25px 0;
-  width:340px;
-  height: 50px;
-  border: none;
-  outline: none;
-  background-color: #24AB70;
-  cursor: pointer;
-  color:#fff;
-} */

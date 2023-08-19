@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 // import Avatar from '@mui/material/Avatar';
 // import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+// import { green } from '@mui/material/colors';
 // import MenuItem from '@mui/material/MenuItem';
 
 // const pages = ['Houses', 'AboutUs'];
@@ -33,7 +34,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor:'#24AB70',position:'static',justifyContent:'center'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -54,7 +55,7 @@ function NavBar() {
             copyright2023
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none',justifyContent:'center' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -108,7 +109,7 @@ function NavBar() {
           >
             copyright2023
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:'center'} }}>
             {/* {pages.map((page) => (
               <Button
                 key={page}

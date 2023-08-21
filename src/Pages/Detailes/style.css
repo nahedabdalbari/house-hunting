@@ -1,0 +1,50 @@
+/* style.css */
+
+.root {
+  display: flex;
+  padding: 136px;
+  align-items: center;
+}
+
+.image {
+  width: 825px;
+  height: 542px;
+  margin-right: 16px;
+  margin-top: -320px;
+}
+
+.smallerImage {
+  width: 400px;
+  height: 283px;
+  margin-right: 8px; /* تخصيص المسافة بين الصور الصغيرة */
+}
+
+.aboutSection {
+  margin-top: 16px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ownerInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+  padding: 16px;
+  border: 2px solid #1976d2;
+  border-radius: 4px;
+}
+.bottom-side{
+  display: inline-block;
+
+    position: relative;
+    top: -417px;
+    left: 130px;
+}
+p{
+  width: 633px;
+}

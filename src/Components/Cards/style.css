@@ -1,0 +1,14 @@
+.map-icon{
+  color: #24AB70;
+  margin-bottom: -16px;
+  padding: 10px;
+}
+.loc-text{
+  color:#A9A5A5;
+}
+.btn-more{
+  background-color: #24AB70;
+  border-radius: 50px;
+  color:#fff;
+  width: 150px;
+}

@@ -10,6 +10,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from "../../Util/images/logo.png";
+// import Link from '@mui/material'
+import{Link} from 'react-router-dom'
 import  "./style.css"
 
 
@@ -78,7 +80,11 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
+                
                   <Typography textAlign="center">{page}</Typography>
+                  {/* <Link to={'/aboutus'}  color="inherit" >
+            About Us
+          </Link> */}
                 </MenuItem>
               ))}
             </Menu>
@@ -122,8 +128,9 @@ function NavBar() {
             }}  variant="contained" >Sign UP</Button>
             <Button style={{
               backgroundColor:'#24AB70',
-              marginRight:10
-            }} variant="contained">Login</Button>
+              marginRight:10,
+            }} variant="contained"
+            >Login</Button>
 
             </Tooltip>
             .

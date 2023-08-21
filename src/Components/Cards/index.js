@@ -1,35 +1,4 @@
-// import  React from 'react';
-// import Card from '@mui/material/Card';
-// import CardActions from '@mui/material/CardActions';
-// import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
 
-// export default function MediaCard({house}) {
-//     const { location, title, description } = house;
-//   return (
-//     <Card sx={{ maxWidth: 345 }}>
-//       <CardMedia
-//         sx={{ height: 140 }}
-//         image="https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg"
-//         title="green iguana"
-//       />
-//       <CardContent>
-//         <Typography gutterBottom variant="h5" component="div">
-//        {title} 
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-// {description}       {location}  
-//         </Typography>
-//       </CardContent>
-//       <CardActions>
-      
-//         <Button size="small"> view  More</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -37,16 +6,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import BedIcon from '@mui/icons-material/Bed';
+import BathtubIcon from '@mui/icons-material/Bathtub';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import './style.css'
+// import { ListSubheader } from '@mui/material';
 
 
-export default function MediaCard(house) {
+export default function MediaCard({house}) {
   const { photo, title, bedroom,bathroom,location,price } = house;
   return (
     <div className="styleCard" style={{
       flex: '0 0 calc(33.333% - 16px)', 
-      margin: '0 8px 16px',
-      maxWidth: '345px', 
-      boxSizing: 'border-box'
+      margin: '50px 8px 16px',
+      
+      maxWidth: '500px', 
+      boxSizing: 'border-box',
+    
     }}>
       <Card sx={{ maxWidth: '100%' }}>
         <CardMedia
@@ -56,19 +32,37 @@ export default function MediaCard(house) {
           image={photo}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+
+
+<Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {bedroom}, {bathroom}, {location}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {price}
+
+          <Typography>
+          <BedIcon className='map-icon' />
+          <span className='loc-text'>
+          {bedroom} BedRoom      
+          </span>
+          
+
+           <BathtubIcon className='map-icon' />
+           <span className='loc-text'>
+          {bathroom} BathRoom      
+          </span>
+
+          <LocationOnIcon className='map-icon' />
+           <span className='loc-text'>
+          {location} location      
+          </span>
+                 </Typography>
+              
+          <Typography className='map-icon' variant="body2" color="text.secondary">
+            {price}$
           </Typography>
         </CardContent>
         <CardActions>
           
-          <Button size="small">More Details</Button> 
+          <Button className='btn-more' style={{backgroundColor:'#24AB70',color:'#fff'} } size="small">More Details</Button> 
         </CardActions>
       </Card>
     </div>

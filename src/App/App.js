@@ -1,8 +1,8 @@
 import React from 'react';
 import {Layout, Landing} from '../Pages';
- import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
-  // import About from '../Pages/About';
-  // import Search from '../Pages/Search';
+//  import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+  import About from '../Pages/About';
+  import Search from '../Pages/Search';
   import Detailes from '../Pages/Detailes';
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
         </Route>
       </Routes>
     </Router> */}
-  {/* <About/> */}
-  {/* <Search/> */}
+  <About/> 
+   <Search/>
   <Detailes/>
 
 

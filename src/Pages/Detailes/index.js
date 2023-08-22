@@ -8,6 +8,9 @@ import img2 from '../../Util/images/twode.jpg';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import CallIcon from '@mui/icons-material/Call';
 
 
 const PropertyDetailsPage = () => {
@@ -21,6 +24,40 @@ const PropertyDetailsPage = () => {
           <img src={img2} alt="Property" className="smallerImage" />
           <img src={img1} alt="Property" className="smallerImage" />
         </Grid>
+        {/* <Grid item xs={12} md={6}> */}
+          <div class='ownerInfo'>
+            <div className='owner'>
+            <h2>Contact with Owner</h2>
+            </div>
+            <div className='info'>
+            <Typography>
+              <div>
+              <PersonIcon className='info-icon' />
+          <span className='info-text'>
+           {'Nahed Abdalbari'}  Person
+          </span>
+              </div>
+        
+          
+<div>
+<EmailIcon className='info-icon' />
+           <span className='info-text'>
+          {'nahedabdalbari@gmail.com'} Email      
+          </span>
+</div>
+          
+<div>
+
+<CallIcon className='info-icon' />
+           <span className='info-text'>
+          {'0597745986'} Call      
+          </span>
+</div>
+                 </Typography>
+                 </div>
+          
+          </div>
+        {/* </Grid> */}
 
       </Grid>
       </div>
@@ -47,7 +84,7 @@ const PropertyDetailsPage = () => {
                  <Typography className='map-icon' variant="body2" color="text.secondary">
             {/* {price}$ */}
           </Typography>
-          <p>Lincoln Park Condo is huge! Beautiful house in a beautiful building in a beautiful neighborhood. High end finishes include hardwood floors, granite counters, maple cabinets, stainless appliances, Horton lighting fixtures, and wall to wall windows throughout! Relaxing views of Lincoln Park. Tons of wardrobe space in the largest single bedroom in the bedroom. Gorgeous pool with views of the lake, aerial show, Chicago skyline, North Avenue beach...large sundeck with grills and party room. 
+          <p>Lincoln Park Condo is huge! Beautiful house in a beautiful building in a beautiful neighborhood. High end finishes include hardwood floors, granite counters, maple cabinets, stainless appliances, Horton lighting fixtures, and wall to wall windows throughout! Relaxing views of Lincoln Park. Tons of wardrobe space in the largest single bedroom in the bedroom. Gorgeous pool with views of the lake, aerial show, Chicago skyline, North Avenue beach...large sundeck with grills and party room. Lincoln Park Condo is huge! Beautiful house in a beautiful building in a beautiful neighborhood. High end finishes include hardwood floors, granite counters, maple cabinets, stainless appliances, Horton lighting fixtures, and wall to wall windows throughout! Relaxing views of Lincoln Park. Tons of wardrobe space in the largest single bedroom in the bedroom. Gorgeous pool with views of the lake, aerial show, Chicago skyline, North Avenue beach...large sundeck with grills and party room. 
 
           </p>
       </div>

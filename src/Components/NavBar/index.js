@@ -1,164 +1,267 @@
-import  React from 'react';
-import {AppBar ,Box,Toolbar } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import logo from "../../Util/images/logo.png";
-import{Link} from 'react-router-dom';
-import  "./style.css"
+// import  React from 'react';
+// import {AppBar ,Box,Toolbar } from '@mui/material';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+// import Menu from '@mui/material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Container from '@mui/material/Container';
+// // import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+// import Tooltip from '@mui/material/Tooltip';
+// import MenuItem from '@mui/material/MenuItem';
+// import logo from "../../Util/images/logo.png";
+// import{Link} from 'react-router-dom';
+// import  "./style.css"
 
 
-const pages = ['Houses', 'About Us'];
-// const settings = ['Profile', 'Favorite', 'Logout'];
+// const pages = ['Houses', 'About Us'];
+// // const settings = ['Profile', 'Favorite', 'Logout'];
 
-function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+// function NavBar() {
+//   const [anchorElNav, setAnchorElNav] = React.useState(null);
+//   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
+//   const handleOpenNavMenu = (event) => {
+//     setAnchorElNav(event.currentTarget);
+//   };
+//   // const handleOpenUserMenu = (event) => {
+//   //   setAnchorElUser(event.currentTarget);
+//   // };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+//   const handleCloseNavMenu = () => {
+//     setAnchorElNav(null);
+//   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+//   const handleCloseUserMenu = () => {
+//     setAnchorElUser(null);
+//   };
 
-  return (
-    <AppBar position="static" style={{
-      backgroundColor:'white'
-    }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+//   return (
+//     <AppBar position="static" style={{
+//       backgroundColor:'white'
+//     }}>
+//       <Container maxWidth="xl">
+//         <Toolbar disableGutters>
         
       
-            <img 
-            className='logo-img' src={logo} alt="" />
+//             <img 
+//             className='logo-img' src={logo} alt="" />
       
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+//           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+//             <IconButton
+//               size="large"
+//               aria-label="account of current user"
+//               aria-controls="menu-appbar"
+//               aria-haspopup="true"
+//               onClick={handleOpenNavMenu}
+//               color="inherit"
+//             >
+//               <MenuIcon />
+//             </IconButton>
+//             <Menu
+//               id="menu-appbar"
+//               anchorEl={anchorElNav}
+//               anchorOrigin={{
+//                 vertical: 'bottom',
+//                 horizontal: 'left',
+//               }}
+//               keepMounted
+//               transformOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'left',
+//               }}
+//               open={Boolean(anchorElNav)}
+//               onClose={handleCloseNavMenu}
+//               sx={{
+//                 display: { xs: 'block', md: 'none' },
+//               }}
+//             >
+//               {pages.map((page) => (
+//                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                 
-                  <Typography textAlign="center">{page}</Typography>
-                  {/* <Link to={'/aboutus'}  color="inherit" >
-            About Us
-          </Link> */}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Hunting
-          </Typography> */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:'center'} }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+//                   <Typography textAlign="center">{page}</Typography>
+//                   {/* <Link to={'/aboutus'}  color="inherit" >
+//             About Us
+//           </Link> */}
+//                 </MenuItem>
+//               ))}
+//             </Menu>
+//           </Box>
+//           {/* <Typography
+//             variant="h5"
+//             noWrap
+//             component="a"
+//             href="/"
+//             sx={{
+//               mr: 2,
+//               display: { xs: 'flex', md: 'none' },
+//               flexGrow: 1,
+//               fontFamily: 'monospace',
+//               fontWeight: 700,
+//               letterSpacing: '.3rem',
+//               color: 'inherit',
+//               textDecoration: 'none',
+//             }}
+//           >
+//             Hunting
+//           </Typography> */}
+//           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' ,justifyContent:'center'} }}>
+//             {pages.map((page) => (
+//               <Button
+//                 key={page}
+//                 onClick={handleCloseNavMenu}
+//                 sx={{ my: 2, color: 'black', display: 'block' }}
+//               >
+//                 {page}
+//               </Button>
+//             ))}
+//           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-            <Button style={{
-              backgroundColor:'#24AB70', 
-              marginRight:10,
+//           <Box sx={{ flexGrow: 0 }}>
+//             <Tooltip title="Open settings">
+//             <Button style={{
+//               backgroundColor:'#24AB70', 
+//               marginRight:10,
               
-            }}  variant="contained" >Sign UP</Button>
-            <Button style={{
-              backgroundColor:'#24AB70',
-              marginRight:10,
-            }} variant="contained"
-            >Login</Button>
+//             }}  variant="contained" >Sign UP</Button>
+//             <Button style={{
+//               backgroundColor:'#24AB70',
+//               marginRight:10,
+//             }} variant="contained"
+//             >Login</Button>
 
-            </Tooltip>
-            .
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+//             </Tooltip>
+//             .
+//             <Menu
+//               sx={{ mt: '45px' }}
+//               id="menu-appbar"
+//               anchorEl={anchorElUser}
+//               anchorOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'right',
+//               }}
+//               keepMounted
+//               transformOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'right',
+//               }}
+//               open={Boolean(anchorElUser)}
+//               onClose={handleCloseUserMenu}
+//             >
+//               {/* {settings.map((setting) => (
+//                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
+//                   <Typography textAlign="center">{setting}</Typography>
+//                 </MenuItem>
+//               ))} */}
+//             </Menu>
+//           </Box>
+//         </Toolbar>
+//       </Container>
+//     </AppBar>
+//   );
+// }
+// export default NavBar;
+
+
+// import React from 'react';
+// import { AppBar, Toolbar, IconButton, Typography, Button, Box } from '@mui/material';
+// import { AccountCircle, Create, Home, Info } from '@mui/icons-material';
+// import logo from "../../Util/images/logo.png";
+
+// const Navbar = () => {
+//   return (
+//     <AppBar position="static">
+//       <Toolbar>
+//         <IconButton edge="start" color="inherit" aria-label="logo">
+//         <img 
+//              className='logo-img' src={logo} alt="" />
+//         </IconButton>
+//         <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+//           Navbar
+//         </Typography>
+//         <Box>
+//           <Button color="inherit" startIcon={<Home />} sx={{ marginRight: 2 }}>
+//             Home
+//           </Button>
+//           <Button color="inherit" startIcon={<Info />} sx={{ marginRight: 2 }}>
+//             About Us
+//           </Button>
+//           <Button color="inherit" startIcon={<AccountCircle />} sx={{ marginRight: 2 }}>
+//             Sign In
+//           </Button>
+//           <Button
+//             color="inherit"
+//             startIcon={<Create />}
+//             sx={{ backgroundColor: '#24AB70', '&:hover': { backgroundColor: '#1A7E52' } }}
+//           >
+//             Create Account
+//           </Button>
+//         </Box>
+//       </Toolbar>
+//     </AppBar>
+//   );
+// };
+
+// export default Navbar;
+
+
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../../Util/images/logo.png";
+import "./style.css";
+
+function Navbar() {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  return (
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+          <img 
+            className='logo-img' src={logo} alt="" />            <i className="fas fa-code"></i>
+          </NavLink>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/aboutus"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                About
+              </NavLink>
+            </li>
+
+
+          </ul>
+          <div className="nav-buttons">
+            <button className="green-button">SignUp</button>
+            <button className="green-button">Login</button>
+          </div>
+        
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }
-export default NavBar;
+
+export default Navbar;

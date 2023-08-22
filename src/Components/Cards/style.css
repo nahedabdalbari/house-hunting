@@ -11,4 +11,19 @@
   border-radius: 50px;
   color:#fff;
   width: 150px;
+  text-decoration: none;
 }
+.btn-content{
+  display: flex;
+    justify-content: space-around;
+    gap: 248px;
+
+}
+.icon:hover{
+  color: #24AB70;
+}
+.link-text{
+  text-decoration: none;
+  color:#fff;
+}
+

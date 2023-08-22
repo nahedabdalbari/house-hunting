@@ -8,7 +8,7 @@ const centerStyle = {
   minHeight: 'calc(100vh - 100px)', // احتساب الارتفاع بالنسبة للشاشة
 };
 
-function AboutPage() {
+function About() {
   return (
     <div style={centerStyle}>
       <div>
@@ -32,7 +32,7 @@ function AboutPage() {
   );
 }
 
-export default AboutPage;
+export default About;
 
 
 

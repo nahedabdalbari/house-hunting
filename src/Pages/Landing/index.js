@@ -3,6 +3,9 @@ import { useEffect,useState } from 'react';
 import img from '../../Util/images/hero-back.png'
 import  "./style.css"
 import CardContainer from '../../Components/CardContainer';
+import Button from '@mui/material/Button'; 
+import Typography from '@mui/material/Typography';
+import {AppBar ,Box,Toolbar } from '@mui/material';
 
 
 
@@ -30,10 +33,11 @@ const Landing = ()=> {
     <img className = 'img-hero' src={img} alt=''/>
     <h1 className='head-hero'>Find your home with the people you trust.</h1>
     <form>
-     <input type='text' placeholder='Search House'/>
+     <input type='text' placeholder='Search House' />
       <button type='sumbit'>Search</button>
      
     </form>
+  
 
     </div>
 <div className='card-style'>

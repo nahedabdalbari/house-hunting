@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import './style.css';
@@ -11,9 +11,28 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
+import {useParams} from 'react-router-dom'
 
 
-const PropertyDetailsPage = () => {
+const Details = () => {
+
+  const {id} = useParams();
+  
+  const [house, setHouse] = useState([]);
+  const getHouse = async () => {
+      const response = await fetch(`https://my-json-server.typicode.com/nahedabdalbari/mock-api/house/${id}`);
+      const FinalData = await response.json();
+      console.log(response.url)
+      setHouse(FinalData)
+  }
+
+
+          //useEffect()
+          useEffect(() => {
+              getHouse();
+             
+               }, [id]
+                )
   return (
     <>
     <div className="root" style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
@@ -67,22 +86,22 @@ const PropertyDetailsPage = () => {
       <Typography>
           <BedIcon className='map-icon' />
           <span className='loc-text'>
-          {/* {bedroom} BedRoom       */}
+          {house.bedroom} BedRoom      
           </span>
           
 
            <BathtubIcon className='map-icon' />
            <span className='loc-text'>
-          {/* {bathroom} BathRoom       */}
+          {house.bathroom} BathRoom      
           </span>
 
           <LocationOnIcon className='map-icon' />
            <span className='loc-text'>
-          {/* {location} location       */}
+          {house.location} location      
           </span>
                  </Typography>
                  <Typography className='map-icon' variant="body2" color="text.secondary">
-            {/* {price}$ */}
+            {house.price}$
           </Typography>
           <p>Lincoln Park Condo is huge! Beautiful house in a beautiful building in a beautiful neighborhood. High end finishes include hardwood floors, granite counters, maple cabinets, stainless appliances, Horton lighting fixtures, and wall to wall windows throughout! Relaxing views of Lincoln Park. Tons of wardrobe space in the largest single bedroom in the bedroom. Gorgeous pool with views of the lake, aerial show, Chicago skyline, North Avenue beach...large sundeck with grills and party room. Lincoln Park Condo is huge! Beautiful house in a beautiful building in a beautiful neighborhood. High end finishes include hardwood floors, granite counters, maple cabinets, stainless appliances, Horton lighting fixtures, and wall to wall windows throughout! Relaxing views of Lincoln Park. Tons of wardrobe space in the largest single bedroom in the bedroom. Gorgeous pool with views of the lake, aerial show, Chicago skyline, North Avenue beach...large sundeck with grills and party room. 
 
@@ -98,4 +117,4 @@ const PropertyDetailsPage = () => {
   );
 };
 
-export default PropertyDetailsPage;
+export default Details;

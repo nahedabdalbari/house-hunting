@@ -5,7 +5,8 @@ import About from '../Pages/About';
 import Details from '../Pages/Detailes';
 import SearchPage from '../Pages/SearchPage';
 import NotFound from '../Pages/NotFound';
-import Login from '../Pages/Login';
+// import Login from '../Pages/Login';
+import Loginpop from '../Components/Loginpop';
 
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
              <Route path={`/detailes/:id`} element={<Details />} />
         
           <Route path="/SearchPage" element={<SearchPage />} />
-          <Route path="/Login" element={<Login/>} />
+          {/* <Route path="/Login" element={<Login/>} /> */}
+
+          <Route path="/Loginpop" element={<Loginpop/>} />
+
 
           <Route path='*' element={<NotFound />}/>
         

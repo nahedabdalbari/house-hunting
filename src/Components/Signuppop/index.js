@@ -119,7 +119,7 @@ function Signup(){
         I have Account{' '}
         <span
           style={{ color: '#24AB70', cursor: 'pointer' }}
-          onClick={}
+          // onClick={}
         >
           Login Account
         </span>

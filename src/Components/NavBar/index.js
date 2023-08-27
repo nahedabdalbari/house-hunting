@@ -2,85 +2,76 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Util/images/logo.png";
-import { useNavigate } from 'react-router-dom';
-import login from '../Loginpop';
-import Signup from "../Signuppop";
+// import { useNavigate } from 'react-router-dom';
 // import ResponsiveDialog from '../../Pages/Login';
-// import Button from '@mui/material/Button';
-// import Dialog from '@mui/material/Dialog';
-// // import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
-// import DialogTitle from '@mui/material/DialogTitle';
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// import { useTheme } from '@mui/material/styles';
-// import TextField from '@mui/material/TextField';
-// import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+// import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import "./style.css";
-import { Phone } from "@mui/icons-material";
 
 function Navbar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
 
-const navigate = useNavigate();
-function navToLogin(){
-navigate('/Login')
+// const navigate = useNavigate();
+// function navToLogin(){
+// // navigate('/Login')
 
 
-// const [open, setOpen] = React.useState(false);
-// const [username, setUsername] = useState('');
-// const [password, setPassword] = useState('');
-// const [email, setEmail] = useState('');
-// const [mobile, setMobile] = useState('');
-// const [usernameError, setUsernameError] = useState(false);
-// const [passwordError, setPasswordError] = useState(false);
-// const [emailError, setemailError] = useState(false);
-// const [login,setLogin]=useState("false");
-// const [signup,setSignup]=useState("false");
+const [open, setOpen] = React.useState(false);
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+const [email, setEmail] = useState('');
+const [mobile, setMobile] = useState('');
+const [usernameError, setUsernameError] = useState(false);
+const [passwordError, setPasswordError] = useState(false);
+const [emailError, setemailError] = useState(false);
 
 
-// const theme = useTheme();
-// const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+const theme = useTheme();
+const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-// const handleClickOpen = () => {
-// setOpen(true);
-// };
+const handleClickOpen = () => {
+setOpen(true);
+};
 
+const handleClose = () => {
+setOpen(false);
+};
+const handleLogin = () => {
+    // تحقق هنا من الاسم وكلمة المرور
+    if (username === '') {
+      setUsernameError(true);
+    }
+    if (password === '') {
+      setPasswordError(true);
+    }
+    // إذا كانت كلمة المرور واسم المستخدم صحيحة، قم باتخاذ الإجراء المناسب
+  };
+    const handleCreateAccount = () => {
+      if (username === '') {
+        setUsernameError(true);
+      }
+      if (email === '') {
+        setUsernameError(true);
+      }
+      if (password === '') {
+        setPasswordError(true);
+      }
+      if (mobile === '') {
+        setPasswordError(true);
+      }
 
-
-// const handleClose = () => {
-// setOpen(false);
-// };
-// const handleLogin = () => {
-//   setLogin(true);
-//     // تحقق هنا من الاسم وكلمة المرور
-//     if (username === '') {
-//       setUsernameError(true);
-//     }
-//     if (password === '') {
-//       setPasswordError(true);
-//     }
-//     // إذا كانت كلمة المرور واسم المستخدم صحيحة، قم باتخاذ الإجراء المناسب
-//   };
-//     const handleCreateAccount = () => {
-//       setSignup(true);
-//       if (username === '') {
-//         setUsernameError(true);
-//       }
-//       if (email === '') {
-//         setUsernameError(true);
-//       }
-//       if (password === '') {
-//         setPasswordError(true);
-//       }
-//       if (mobile === '') {
-//         setPasswordError(true);
-//       }
-
-// // history.push('/create-account'); // قم بتعديل الرابط وفقًا لمسار صفحة إنشاء الحساب الخاصة بك
-// };
+// history.push('/create-account'); // قم بتعديل الرابط وفقًا لمسار صفحة إنشاء الحساب الخاصة بك
+};
 
 
   return (
@@ -119,8 +110,8 @@ navigate('/Login')
 
           </ul>
           <div className="nav-buttons">
-            <button className="green-button" onClick={Signup} >SignUp</button>
-            {/* <Dialog
+            <button className="green-button" onClick={handleClickOpen} >SignUp</button>
+            <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -167,40 +158,47 @@ navigate('/Login')
         helperText={passwordError ? 'Please Enter Passward':''}
       />
         <TextField
-        label="Mobile"
+        label="Password"
         variant="outlined"
-        type="number"
+        type="password"
         fullWidth
         margin="normal"
-        value={Phone}
-        onChange={(e) => setMobile(e.target.value)}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         error={passwordError}
-        // helperText={passwordError ? 'Please Enter Mobile':''}
+        helperText={passwordError ? 'Please Enter Passward':''}
       />
       <Button
         variant="contained"
         color="primary"
-        onClick={handleCreateAccount}
+        onClick={handleLogin}
         style={{ backgroundColor: '#24AB70', marginTop: '10px' }}
       >
         Login
       </Button>
       <Typography variant="body2" style={{ marginTop: '10px' }}>
-        I have Account{' '}
+        don't have Account{' '}
         <span
           style={{ color: '#24AB70', cursor: 'pointer' }}
-          onClick={handleLogin}
+          onClick={handleCreateAccount}
         >
-          Login Account
+          Create Account
         </span>
       </Typography>
     </div>
           </DialogContentText>
         </DialogContent>
-
-      </Dialog> */}
-            <button className="green-button" onClick={login}>Login</button> 
-            {/* <Dialog
+        {/* <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Disagree
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions> */}
+      </Dialog>
+            <button className="green-button" onClick={handleClickOpen}>Login</button> 
+            <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -256,8 +254,15 @@ navigate('/Login')
     </div>
           </DialogContentText>
         </DialogContent>
-
-      </Dialog> */}
+        {/* <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Disagree
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions> */}
+      </Dialog>
           </div>
         
           <div className="nav-icon" onClick={handleClick}>

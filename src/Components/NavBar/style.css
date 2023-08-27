@@ -154,3 +154,14 @@ margin:5px;
   }
   
 }
+
+/* .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+
+  width: 77% !important;
+} */
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+
+  max-height:600px !important;
+  max-width: 700px !important;
+}

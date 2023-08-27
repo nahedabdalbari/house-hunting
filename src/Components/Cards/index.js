@@ -109,7 +109,9 @@ import './style.css'
 export default function MediaCard({ house }) {
   const { photo, title, bedroom, bathroom, location, price, id } = house;
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+
+
+<Card sx={{ display: 'flex', flexDirection: 'column', height: '100%'}}>
       <CardMedia
         component="img"
         alt={title}
@@ -153,6 +155,10 @@ export default function MediaCard({ house }) {
         </div>
       </CardActions>
     </Card>
+
+
+
+  
   );
 }
 

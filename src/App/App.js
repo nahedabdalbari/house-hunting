@@ -1,9 +1,12 @@
 import React from 'react';
 import {Layout, Landing} from '../Pages';
 import {Route,Routes } from 'react-router-dom';
-  import About from '../Pages/About';
-  import Search from '../Pages/Search';
-  import Details from '../Pages/Detailes';
+import About from '../Pages/About';
+import Details from '../Pages/Detailes';
+import SearchPage from '../Pages/SearchPage';
+import NotFound from '../Pages/NotFound';
+import Login from '../Pages/Login';
+
 
 function App() {
   return (
@@ -14,16 +17,25 @@ function App() {
            <Route path="/" element={<Landing/>}/>
           <Route path="/aboutus" element={<About />} />
              <Route path={`/detailes/:id`} element={<Details />} />
-          {/* <Route path="/detailes" element={<Details />} /> */}
-          <Route path="/Search" element={<Search />} />
-          
-          {/* <Route path="*" element={<NoPage />} /> */}
-        {/* </Route> */}
-      </Routes>
+        
+          <Route path="/SearchPage" element={<SearchPage />} />
+          <Route path="/Login" element={<Login/>} />
 
-{/* <About/> 
-   <Search/>
-  <Detailes/>  */}
+          <Route path='*' element={<NotFound />}/>
+        
+        
+      </Routes>
+        
+    
+{/* 
+<About/> 
+
+  {/* <Route path="*" element={<notFound />} /> */}
+   
+  {/* <Detailes/>  */} 
+  {/* <Search/> */}
+  {/* <Notfound/> */}
+  {/* <Profile/> */}
 
 
   

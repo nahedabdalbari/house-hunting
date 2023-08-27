@@ -10,19 +10,21 @@ top: 352px;
 left: 89px;
 }
 .hero-part{
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   /* position: relative; */
 }
 form{
   border-radius: 5px;
   position: absolute;
-  top: 483px;
-  left: 435px;
+  top: -129px;
+  
   width: 810px;
   height: 55px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 form input{
   background-color: #fff;
@@ -32,6 +34,8 @@ form input{
   outline: none;
   padding:0 25px;
   border-radius: 25px 0 0 25px;
+  border:1px solid #24AB70;
+  box-shadow: 2px -2px 2px  #24AB70 ;
   
 }
 form button{
@@ -43,13 +47,14 @@ form button{
   background-color: #24AB70;
   cursor: pointer;
   color:#fff;
+  right:96px;
 
 }
 .card-style{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex: '0 0 calc(33.333% - 16px)',
+  margin-top: 37px;
+  justify-content: space-between;
+  flex: '0 0 calc(33.333% - 16px)';
 }
 /* .search-bar{
   position: absolute;

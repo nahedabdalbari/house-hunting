@@ -16,7 +16,7 @@
 .btn-content{
   display: flex;
     justify-content: space-around;
-    gap: 248px;
+    gap: 200px;
 
 }
 .icon:hover{
@@ -27,3 +27,7 @@
   color:#fff;
 }
 
+
+.css-ky44ew-MuiCardContent-root {
+    flex-direction: column !important;
+}

@@ -11,7 +11,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Signuppop from '../Signuppop';
+// import Signuppop from '../Signuppop';
 
 import "./style.css";
 
@@ -26,7 +26,10 @@ function Navbar() {
   // }
 
 
-const [open, setOpen] = React.useState(false);
+const [open1, setOpenlogin] = React.useState(false);
+const [open2, setOpensign] = React.useState(false);
+
+
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('');
@@ -41,15 +44,22 @@ const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
 
 
-const handleClickOpen = () => {
-  setOpen(true);
+const handleClickOpenlogin = () => {
+  setOpenlogin(true);
   };
+  const handleClickOpensign = () => {
+    setOpensign(true);
+    };
+    
   
   
   
   const handleClose = () => {
-  setOpen(false);
+  setOpenlogin(false);
   };
+  const handleCloseSign = () => {
+    setOpensign(false);
+    };
 
 
 const handleLogin = () => {
@@ -130,13 +140,13 @@ const handleLogin = () => {
             </li>
           </ul>
           <div className="nav-buttons">
-            <button className="green-button" onClick={handleClickOpen}>
+            <button className="green-button" onClick={handleClickOpensign}>
               SignUp
             </button>
             <Dialog
         fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
+        open={open2}
+        onClose={handleCloseSign}
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
@@ -172,18 +182,18 @@ const handleLogin = () => {
                 type="email"
                 fullWidth
                 margin="normal"
-                value={email}
+                // value={email}
                 onChange={(e) => setPassword(e.target.value)}
                 error={EmailError}
-                helperText={passwordError ? 'Please Enter email':''}
+                helperText={EmailError ? 'Please Enter email':''}
               />
                               <TextField
                 label="Mobile"
                 variant="outlined"
-                type="number"
+                // type="text"
                 fullWidth
                 margin="normal"
-                value={mobile}
+                // value={mobile}
                 onChange={(e) => setPassword(e.target.value)}
                 // error={emailError}
                 helperText={passwordError ? 'Please Enter email':''}
@@ -200,7 +210,7 @@ const handleLogin = () => {
                 Already have an account?{' '}
                 <span
                   style={{ color: '#24AB70', cursor: 'pointer' }}
-                  onClick={handleClickOpen}
+                  onClick={handleClickOpenlogin}
                 >
                   Log in 
                 </span>
@@ -210,12 +220,12 @@ const handleLogin = () => {
         </DialogContent>
       </Dialog>
   
-            <button className="green-button" onClick={handleClickOpen}>  
+            <button className="green-button" onClick={handleClickOpenlogin}>  
               Login   
             </button>
         <Dialog
         fullScreen={fullScreen}
-        open={open}
+        open={open1}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
@@ -261,7 +271,7 @@ const handleLogin = () => {
         don't have Account{' '}
         <span
           style={{ color: '#24AB70', cursor: 'pointer' }}
-          onClick={Signuppop}
+          onClick={handleClickOpensign}
         >
           Create Account
         </span>

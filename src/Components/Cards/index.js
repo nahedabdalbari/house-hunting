@@ -103,22 +103,26 @@ import BedIcon from '@mui/icons-material/Bed';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import './style.css'
 
 export default function MediaCard({ house }) {
   const { photo, title, bedroom, bathroom, location, price, id } = house;
   return (
+    <>
 
+<Grid item xs={3} sm={6} width="400px">
 
-<Card sx={{ display: 'flex', flexDirection: 'column', height: '100%'}}>
-      <CardMedia
+<Card sx={{ display: 'flex', flexDirection: 'column', height: '100%',width:'420px'}}>
+      <CardMedia 
+
         component="img"
         alt={title}
         height="140"
         image={photo}
       />
-      <CardContent sx={{ flexGrow: 1 }}>
+      <CardContent sx={{ flexGrow: 1 ,display:'flex' }}>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
@@ -133,7 +137,7 @@ export default function MediaCard({ house }) {
           </span>
           <LocationOnIcon className='map-icon' />
           <span className='loc-text'>
-            {location} location
+            {location} 
           </span>
         </Typography>
         <Typography className='map-icon' variant="body2" color="text.secondary">
@@ -155,6 +159,13 @@ export default function MediaCard({ house }) {
         </div>
       </CardActions>
     </Card>
+
+
+    </Grid>
+    </>
+    
+
+
 
 
 

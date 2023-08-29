@@ -51,10 +51,15 @@ form button{
 
 }
 .card-style{
-  display: flex;
+  /* display: flex;
   margin-top: 37px;
   justify-content: space-between;
-  flex: '0 0 calc(33.333% - 16px)';
+  flex: '0 0 calc(33.333% - 16px)'; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 102px;
+
 }
 /* .search-bar{
   position: absolute;

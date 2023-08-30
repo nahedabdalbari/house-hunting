@@ -1,7 +1,7 @@
 import React, { useState,useContext } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../Util/images/logo.png";
-// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -11,15 +11,28 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import AuthContext from '../../Context/AuthContext';
 import validationSchema from '../../Util/validation/login'
 import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
-import AuthContext from '../../Context/AuthContext';
-// import Signuppop from '../Signuppop';
-
+import Profile from '../../Pages/Profile'
 import "./style.css";
 
 function Navbar() {
+  // const navigate = useNavigate();
+  // function navToProfile(){
+  //   navigate('/Profile');
+  // }
+// ​
+// ​
+//   function navToFavorite(){
+//     // navigate('/Favorite');
+//   }
+  // function navToProfile(){
+  //   navigate('/Profile');
+  // }
+
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -34,13 +47,13 @@ const [open1, setOpenlogin] = React.useState(false);
 const [open2, setOpensign] = React.useState(false);
 
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-const [email, setEmail] = useState('');
-const [mobile, setMobile] = useState('');
-const [usernameError, setUsernameError] = useState(false);
-const [passwordError, setPasswordError] = useState(false);
-const [EmailError, setEmailError] = useState(false);
+// const [username, setUsername] = useState('');
+// const [password, setPassword] = useState('');
+// const [email, setEmail] = useState('');
+// const [mobile, setMobile] = useState('');
+// const [usernameError, setUsernameError] = useState(false);
+// const [passwordError, setPasswordError] = useState(false);
+// const [EmailError, setEmailError] = useState(false);
 // const [login,setLogin]=useState("false");
 
 const theme = useTheme();
@@ -68,15 +81,19 @@ const handleClickOpenlogin = () => {
 
 const handleLogin = () => {
   // setLogin(true);
-    // تحقق هنا من الاسم وكلمة المرور
-    if (username === '') {
-      setUsernameError(true);
-    }
-    if (password === '') {
-      setPasswordError(true);
-    }
-    // إذا كانت كلمة المرور واسم المستخدم صحيحة، قم باتخاذ الإجراء المناسب
+    // // تحقق هنا من الاسم وكلمة المرور
+    // if (username === '') {
+    //   setUsernameError(true);
+    // }
+    // if (password === '') {
+    //   setPasswordError(true);
+    // }
+    // // إذا كانت كلمة المرور واسم المستخدم صحيحة، قم باتخاذ الإجراء المناسب
+
+
   };
+
+
 
   /////////////////////////////////////
   // function SignupPage() {
@@ -97,17 +114,67 @@ const handleLogin = () => {
   //   setOpen(false);
   // };
 
-  const handleSignup = () => {
-    if (username === '') {
-      setUsernameError(true);
-    }
-    if (password === '') {
-      setPasswordError(true);
-    }
-    if(email===''){
-      setEmailError(true);
-    }
-  };
+  // const handleSignup = () => {
+  //   if (username === '') {
+  //     setUsernameError(true);
+  //   }
+  //   if (password === '') {
+  //     setPasswordError(true);
+  //   }
+  //   if(email===''){
+  //     setEmailError(true);
+  //   }
+  // };
+
+  const {login} = useContext(AuthContext);
+  const navigate = useNavigate();
+  function navToHome(){
+    navigate('/')}
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState();
+    const [error, setError] = useState();
+  
+    const clear = () => {
+      setEmail('');
+      setPassword('');
+      setError(null);
+    };
+
+    const handleEmail = (event) => {
+      setEmail(event.target.value);
+    };
+  
+    const handlePassword = (event) => {
+      setPassword(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+      try {
+        event.preventDefault();
+        setIsLoading(true);
+        const userData = {
+          email,
+          password,
+        };
+  
+        await validationSchema.validate(userData, {
+          abortEarly: false,
+        });
+        const response = await fetch('https://my-json-server.typicode.com/MennatullahAsh/UsersAPI/users',userData);
+        const data = await response.json();
+         console.log(data);
+         login(userData)
+        clear();
+        setIsLoading(false);
+       navToHome();
+      } catch (err) {
+        setError(err.response ? err.response.data.message : err.errors[0]);
+        setIsLoading(false);
+      }
+    };
+
   ///////////////////////////
 
   return (
@@ -144,7 +211,7 @@ const handleLogin = () => {
             </li>
           </ul>
           <div className="nav-buttons">
-            <button className="green-button" onClick={handleClickOpensign}>
+            {/* <button className="green-button" onClick={handleClickOpensign}>
               SignUp
             </button>
             <Dialog
@@ -222,7 +289,7 @@ const handleLogin = () => {
             </div>
           </DialogContentText>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
   
             <button className="green-button" onClick={handleClickOpenlogin}>  
               Login   
@@ -243,14 +310,14 @@ const handleLogin = () => {
          Login
        </Typography>
        <TextField
-        label="Name"
+        label="Email"
         variant="outlined"
         fullWidth
         margin="normal"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        error={usernameError}
-        helperText={usernameError ? 'Please Enter Name': ''}
+        value={email}
+        onChange={handleEmail}
+        // error={usernameError}
+        // helperText={usernameError ? 'Please Enter Name': ''}
       />
       <TextField
         label="Password"
@@ -259,19 +326,19 @@ const handleLogin = () => {
         fullWidth
         margin="normal"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        error={passwordError}
-        helperText={passwordError ? 'Please Enter Passward':''}
+        onChange={handlePassword}
+        // error={passwordError}
+        // helperText={passwordError ? 'Please Enter Passward':''}
       />
       <Button
         variant="contained"
         color="primary"
-        onClick={handleLogin}
+        onClick={'handleSubmit'}
         style={{ backgroundColor: '#24AB70', marginTop: '10px' }}
       >
         Login
       </Button>
-      <Typography variant="body2" style={{ marginTop: '10px' }}>
+      {/* <Typography variant="body2" style={{ marginTop: '10px' }}>
         don't have Account{' '}
         <span
           style={{ color: '#24AB70', cursor: 'pointer' }}
@@ -279,8 +346,14 @@ const handleLogin = () => {
         >
           Create Account
         </span>
-      </Typography>
+      </Typography> */}
+       {error && (
+            <Alert  severity="error" style={{marginTop:'8px'}}>
+              {error}
+            </Alert>
+          )}
     </div>
+
           </DialogContentText>
         </DialogContent>
       </Dialog>
@@ -289,8 +362,11 @@ const handleLogin = () => {
         
           </div>
 
-          <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+          <div className="nav-icon" onClick={handleSubmit}>
+            {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
+            <button onClick={handleSubmit}>
+        {isLoading ? "Successfully" : 'Login'}
+          </button>
           </div>
         </div>
       </nav>

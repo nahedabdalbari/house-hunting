@@ -21,6 +21,7 @@ navigate('/SearchPage');
 }
 
   const [house, setHouse] = useState([]);
+  
   const getHouse = async () => {
       const response = await fetch("https://my-json-server.typicode.com/nahedabdalbari/mock-api/house");
       const FinalData = await response.json();

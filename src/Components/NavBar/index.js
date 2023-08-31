@@ -333,7 +333,7 @@ const handleLogin = () => {
       <Button
         variant="contained"
         color="primary"
-        onClick={'handleSubmit'}
+        onClick={handleSubmit}
         style={{ backgroundColor: '#24AB70', marginTop: '10px' }}
       >
         Login
@@ -362,7 +362,7 @@ const handleLogin = () => {
         
           </div>
 
-          <div className="nav-icon" onClick={handleSubmit}>
+          <div className="nav-icon" >
             {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
             <button onClick={handleSubmit}>
         {isLoading ? "Successfully" : 'Login'}
